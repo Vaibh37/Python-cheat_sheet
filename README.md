@@ -16,6 +16,12 @@ This repo is built to answer the annoying questions that happen after not touchi
 - how do I sort by the second item?
 - what do I import for queue / heap / Counter / binary search?
 
+## Current study checkpoint
+
+**Completed:** dictionaries and `.get()`, frequency counting, `enumerate()`, `zip()`, list comprehensions, and dictionary comprehensions (including filtering and transformation).
+
+**Next up:** sorting — `.sort()`, `sorted()`, `reverse=True`, then `key=lambda`. See the practice checklist in [CHEATSHEET.md](CHEATSHEET.md#13-study-order-from-our-current-sessions).
+
 ## Files
 
 - **[CHEATSHEET.md](CHEATSHEET.md) — START HERE:** quick lookup organized by task, worked examples, dictionary frequency tracing, and mistakes from practice
