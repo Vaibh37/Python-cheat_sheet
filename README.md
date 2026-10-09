@@ -1,5 +1,9 @@
 # Python Cheat Sheet 🐍
 
+> **Start here: [FAST CHEATSHEET.md](CHEATSHEET.md)** — concise syntax, real outputs, method lookups, mistakes, and what to learn next.
+
+**Study flow:** look up a method → understand the example → type it yourself → solve a separate exercise → apply the concept in LeetCode. The goal is independent coding, not memorized solutions.
+
 A practical Python refresher for LeetCode, DSA, and everyday coding.
 
 This repo is built to answer the annoying questions that happen after not touching Python for a while:
@@ -14,6 +18,7 @@ This repo is built to answer the annoying questions that happen after not touchi
 
 ## Files
 
+- **[CHEATSHEET.md](CHEATSHEET.md) — START HERE:** quick lookup organized by task, worked examples, dictionary frequency tracing, and mistakes from practice
 - [python_core.md](python_core.md) — syntax, built-ins, strings, lists, tuples, sets, dicts, functions, comprehensions, sorting, and useful methods
 - [leetcode_dsa.md](leetcode_dsa.md) — Python tools and patterns used constantly in LeetCode/DSA
 - [common_gotchas.md](common_gotchas.md) — common Python mistakes and quick fixes
