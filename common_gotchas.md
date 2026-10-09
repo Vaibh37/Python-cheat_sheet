@@ -462,3 +462,112 @@ If IndexError:
 - check len(nums)
 - verify loop boundaries
 - remember last valid index is len(nums) - 1
+
+## 33. A list does not have `.get()`
+
+Wrong:
+
+    fruits = ["apple", "banana"]
+    fruits.get("apple", 0)  # AttributeError
+
+`.get()` belongs to a **dictionary**, not a list. Use a dict to remember counts:
+
+    counts = {}
+    counts["apple"] = counts.get("apple", 0) + 1
+
+## 34. Dictionary vs integer increment
+
+Wrong:
+
+    counts = {}
+    counts += 1  # TypeError
+
+`counts` is a container. Increase the **value under a key**:
+
+    counts["apple"] = counts.get("apple", 0) + 1
+
+If the key already exists:
+
+    counts["apple"] += 1
+
+## 35. String key vs variable key
+
+These are different:
+
+    students = {"Alex": 85}
+    "Alex" in students        # True
+    alex in students          # NameError unless alex is defined
+
+A variable *containing* the string works:
+
+    name = "Alex"
+    name in students          # True
+    students[name]            # 85
+
+## 36. Check variable names exactly
+
+Wrong:
+
+    students = {"Alex": 85}
+    print(student["Alex"])    # NameError: student is not defined
+
+Correct:
+
+    print(students["Alex"])
+
+Python is case-sensitive and does not guess plural or capitalization.
+
+## 37. Printing in vs after a loop
+
+Prints three times:
+
+    count = {}
+    for x in [1, 2, 1]:
+        count[x] = count.get(x, 0) + 1
+        print(count)
+
+Prints the final result once:
+
+    count = {}
+    for x in [1, 2, 1]:
+        count[x] = count.get(x, 0) + 1
+    print(count)              # {1: 2, 2: 1}
+
+## 38. `print(enumerate(nums))` is not the pairs
+
+    nums = [10, 20]
+    print(enumerate(nums))    # prints an enumerate object
+
+To see index + value:
+
+    for i, num in enumerate(nums):
+        print(i, num)
+
+Or:
+
+    print(list(enumerate(nums)))  # [(0, 10), (1, 20)]
+
+## 39. `set(num)` when num is an integer
+
+Wrong:
+
+    num = 10
+    set(num)                 # TypeError: int isn't iterable
+
+Correct for duplicates in a list:
+
+    nums = [10, 20, 10]
+    unique = set(nums)       # {10, 20}
+
+## 40. Return outside a function
+
+Wrong:
+
+    if True:
+        return True         # SyntaxError outside a function
+
+At script level, use `print` to display. Inside a function, use `return` to give a result back to the caller.
+
+---
+
+See [CHEATSHEET.md](CHEATSHEET.md) for method lookup, worked examples, and quick Python review.
