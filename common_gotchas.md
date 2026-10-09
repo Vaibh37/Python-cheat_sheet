@@ -571,3 +571,42 @@ At script level, use `print` to display. Inside a function, use `return` to give
 ---
 
 See [CHEATSHEET.md](CHEATSHEET.md) for method lookup, worked examples, and quick Python review.
+
+## 41. Confusing squaring and doubling in comprehensions
+
+```python
+nums = [2, 4, 6, 8]
+squares = [num * num for num in nums]  # [4, 16, 36, 64]
+doubles = [num * 2 for num in nums]    # [4, 8, 12, 16]
+```
+
+The syntax can be correct while the *calculation* is wrong. Translate the question into arithmetic before writing code.
+
+## 42. Don't remove values from the given input to make a filter work
+
+```python
+nums = [10, 15, 20, 25, 30]
+result = [num for num in nums if num > 18]
+# [20, 25, 30]; nums is still [10, 15, 20, 25, 30]
+```
+
+A filter must operate on the **complete original input**.
+
+## 43. Dictionary comprehension: key vs value
+
+```python
+nums = [3, 5]
+result = {num: num * 3 for num in nums}
+# {3: 9, 5: 15}
+```
+
+To the left of `:` is the **key**. To the right is the **value expression**. In contrast, `[num * 3 for num in nums]` makes a **list**, not a dict.
+
+## 44. Comprehension is not a frequency counter
+
+```python
+fruits = ["apple", "apple"]
+d = {fruit: 1 for fruit in fruits}  # {'apple': 1}, NOT 2
+```
+
+Duplicate dictionary keys overwrite previous values. For counts, use `freq[fruit] = freq.get(fruit, 0) + 1` in a loop or `Counter(fruits)`.
