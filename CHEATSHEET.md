@@ -23,6 +23,9 @@
 | Add/update dictionary entry | `d[key] = value` | `scores["Sam"] = 90` |
 | Loop with indices + values | `enumerate(...)` | `for i, x in enumerate(nums):` |
 | Pair two iterables | `zip(...)` | `zip(names, scores)` |
+| Transform list elements | list comprehension | `[x * 2 for x in nums]` |
+| Filter list elements | comprehension + `if` | `[x for x in nums if x > 5]` |
+| Create key-value mapping | dict comprehension | `{x: x * 2 for x in nums}` |
 | Split text into words | `.split()` | `"a b".split()` |
 | Join a list of words | `separator.join(...)` | `" ".join(words)` |
 | Get character frequency | `Counter` | `Counter("aaba")` |
@@ -79,6 +82,28 @@ for name, mark in zip(names, marks):
 ```
 
 **Remember:** `zip()` stops at the **shorter** input. `print(enumerate(nums))` doesn't print all the pairs; iterate over it or use `list(enumerate(nums))`.
+
+### Turning zipped pairs into a list or dict
+
+```python
+languages = ["python", "Rust", "Go"]
+scores = [10, 9, 8]
+
+pairs = list(zip(languages, scores))
+print(pairs)
+# [('python', 10), ('Rust', 9), ('Go', 8)]
+
+ratings = dict(zip(languages, scores))
+print(ratings)
+# {'python': 10, 'Rust': 9, 'Go': 8}
+
+# If inputs differ in length, extra values are ignored:
+list(zip(["Python", "Rust", "Go"], [10, 9]))
+# [('Python', 10), ('Rust', 9)]
+```
+
+Each pair in `list(zip(...))` is a **tuple**; `dict(zip(...))` treats the first item as the **key** and second as the **value**. Duplicate dictionary keys are overwritten by the later pair. Strings are case-sensitive: `"python"` and `"Python"` are different.
+
 
 ## 3. Lists — most-used methods
 
@@ -310,15 +335,156 @@ list(reversed([1, 2])) # [2, 1]
 | `nums = nums.sort()` | `sort()` returns None | Call `nums.sort()` alone |
 | `print(count)` indented inside counting loop | Prints intermediate states | Dedent to print final result |
 
-## 12. Study order (from our current sessions)
+## 12. Comprehensions — turn loops into concise collections
+
+**Goal:** Understand what the loop is doing first; only use a comprehension when it stays readable.
+
+### A. List comprehension: transform each value
+
+Normal loop:
+
+```python
+nums = [2, 4, 6, 8]
+doubled = []
+
+for num in nums:
+    doubled.append(num * 2)
+
+print(doubled)  # [4, 8, 12, 16]
+```
+
+Same work in one expression:
+
+```python
+doubled = [num * 2 for num in nums]
+#           ^result^    ^loop source^
+print(doubled)  # [4, 8, 12, 16]
+```
+
+**Be precise:** `num * num` **squares** the number; `num * 2` **doubles** it.
+
+### B. List comprehension: filter elements
+
+```python
+nums = [10, 15, 20, 25, 30]
+result = [num for num in nums if num > 18]
+print(result)  # [20, 25, 30]
+print(nums)    # [10, 15, 20, 25, 30] — original unchanged
+```
+
+The optional `if` at the **end** decides whether an item is included.
+
+### C. List comprehension: filter AND transform
+
+Normal loop:
+
+```python
+nums = [1, 2, 3, 4, 5, 6]
+result = []
+for num in nums:
+    if num % 2 == 0:
+        result.append(num * num)
+```
+
+Comprehension:
+
+```python
+result = [num * num for num in nums if num % 2 == 0]
+print(result)  # [4, 16, 36]
+```
+
+**Mental order:** (1) take `num`, (2) test the `if`, (3) transform/store it **only when the condition passes**.
+
+| `num` | Even? | New list |
+|---|---|---|
+| 1 | no | `[]` |
+| 2 | yes | `[4]` |
+| 3 | no | `[4]` |
+| 4 | yes | `[4, 16]` |
+| 5 | no | `[4, 16]` |
+| 6 | yes | `[4, 16, 36]` |
+
+### D. Dictionary comprehension: key `:` value
+
+A dictionary entry is `key: value`. This normal loop:
+
+```python
+nums = [2, 4, 6]
+result = {}
+for num in nums:
+    result[num] = num + 10
+print(result)  # {2: 12, 4: 14, 6: 16}
+```
+
+...is equivalent to:
+
+```python
+result = {num: num + 10 for num in nums}
+#         key  ^ value ^  ^ loop ^
+
+# When num = 2, the pair is 2: 12.
+# When num = 4, the pair is 4: 14.
+# When num = 6, the pair is 6: 16.
+```
+
+**Why `num` twice?** The first `num` is the **key**. The second `num + 10` computes the **value**. They serve different jobs.
+
+### E. Dictionary comprehension: filter AND transform
+
+```python
+nums = [2, 4, 6, 8, 10]
+result = {num: num * num for num in nums if num > 5}
+print(result)  # {6: 36, 8: 64, 10: 100}
+```
+
+### Quick compare
+
+| Shape | What it produces | Example result |
+|---|---|---|
+| `[x * 2 for x in nums]` | List of transformed values | `[4, 8, 12]` |
+| `[x for x in nums if x > 3]` | Filtered list | `[4, 6]` |
+| `[x * 2 for x in nums if x > 3]` | Filtered, transformed list | `[8, 12]` |
+| `{x: x * 2 for x in nums}` | Dictionary of key-value pairs | `{2: 4, 4: 8, 6: 12}` |
+
+For this table, assume `nums = [2, 4, 6]`.
+
+**Gotchas:**
+- `[]` builds a list; `{key: value ...}` builds a dictionary.
+- Comprehensions create new containers; they don't replace the original input list.
+- If dict comprehension keys repeat, later values overwrite earlier ones — this is **not** a replacement for frequency counting via `.get()`.
+- Keep the supplied test input unchanged when practicing; the filter should do the filtering.
+- Complex logic often reads better as a regular loop.
+
+### Independent practice (no copied LeetCode solutions)
+
+```python
+# A. Transform: double each element
+nums = [3, 5, 7]
+
+# B. Filter: keep values > 10
+nums = [5, 12, 8, 20]
+
+# C. Both: square only positive numbers
+nums = [-2, 3, -1, 4]
+
+# D. Dict: number -> number cubed (only odd numbers)
+nums = [1, 2, 3, 4, 5]
+```
+
+---
+
+## 13. Study order (from our current sessions)
 
 - [x] List `append`, `remove`, sorting basics
 - [x] Dict read, write, check membership
 - [x] Dict `.get()` and dynamic keys
 - [x] Frequency counting with a loop
 - [x] `enumerate()`: index + value
-- [ ] `zip()`: two iterables together **(next lesson)**
+- [x] `zip()`: pair two iterables, convert pairs to a list or dictionary
+- [x] List comprehensions: transform, filter, combine both
+- [x] Dictionary comprehensions: key/value, filtering, transformation
+- [ ] **Sorting**: `.sort()` vs `sorted()`, descending, then `key=` **(next lesson)**
 - [ ] `Counter`, `defaultdict`, `deque` (after syntax practice)
-- [ ] Comprehensions, sorting with `key=`, pattern-building
+- [ ] Problem-solving patterns: two pointers, sliding window, hashing
 
 **Learning rule:** Study the idea → trace the variables → write a tiny example yourself → only then use it in LeetCode. This page is a reference, not a substitute for reasoning.
