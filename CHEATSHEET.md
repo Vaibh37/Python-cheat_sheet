@@ -483,8 +483,64 @@ nums = [1, 2, 3, 4, 5]
 - [x] `zip()`: pair two iterables, convert pairs to a list or dictionary
 - [x] List comprehensions: transform, filter, combine both
 - [x] Dictionary comprehensions: key/value, filtering, transformation
-- [ ] **Sorting**: `.sort()` vs `sorted()`, descending, then `key=` **(next lesson)**
-- [ ] `Counter`, `defaultdict`, `deque` (after syntax practice)
+- [x] **Sorting**: `.sort()` vs `sorted()`, descending, and `key=lambda`
+- [x] Python functions: `def`, parameters, `return` (quick refresh)
+- [x] List indexing and slicing (reviewed; stop index needs practice)
+- [x] Nested lists and row/column indexing (reviewed)
+- [ ] **NumPy arrays**: follow the [video study notes](numpy_basics.md) **(now starting)**
+- [ ] `Counter`, `defaultdict`, `deque` (later DSA practice)
 - [ ] Problem-solving patterns: two pointers, sliding window, hashing
 
 **Learning rule:** Study the idea → trace the variables → write a tiny example yourself → only then use it in LeetCode. This page is a reference, not a substitute for reasoning.
+
+---
+
+## 14. Pre-NumPy refresh — functions, slicing, 2D lists
+
+We covered these before starting NumPy. This is a quick reference, not a new course.
+
+### A. Functions: define, call, return
+
+```python
+def double(x):         # x is a parameter
+    return x * 2       # give a value back
+
+print(double(4) + double(3))  # 14
+```
+
+- `def` creates a function; `double(4)` calls it with an argument.
+- `return` gives the computed value to the caller and ends that function call.
+- `print()` only displays a result; it does not replace `return`.
+
+### B. Indexing and slicing
+
+```python
+nums = [5, 10, 15, 20]
+
+print(nums[0])         # 5
+print(nums[-1])        # 20
+print(nums[1:3])       # [10, 15] (not [5, 10, 15])
+print(nums[:3])        # [5, 10, 15]
+print(nums[::2])       # [5, 15]
+print(nums[::-1])      # [20, 15, 10, 5]
+```
+
+**Rule:** `items[start:stop:step]`. Indexing starts at 0; **stop is excluded**.
+
+### C. Nested lists: row, then column
+
+```python
+matrix = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+
+print(matrix[0])       # [1, 2, 3] (first row)
+print(matrix[1][2])    # 6 (second row, third column)
+print(matrix[2][0])    # 7
+print(len(matrix))     # 3 rows
+print(len(matrix[0]))  # 3 columns (for this non-empty rectangular list)
+```
+
+In a list of lists, `matrix[row][column]` uses **two indices**, both starting at 0.
+
+**Next:** [NumPy arrays and chapter-by-chapter tutorial notes](numpy_basics.md). NumPy adds multi-dimensional indexing, shapes, elementwise arithmetic, and broadcasting.
