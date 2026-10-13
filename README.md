@@ -18,9 +18,13 @@ This repo is built to answer the annoying questions that happen after not touchi
 
 ## Current study checkpoint
 
-**Completed:** dictionaries and `.get()`, frequency counting, `enumerate()`, `zip()`, list comprehensions, and dictionary comprehensions (including filtering and transformation).
+**Updated:** 13 October 2026
 
-**Next up:** sorting — `.sort()`, `sorted()`, `reverse=True`, then `key=lambda`. See the practice checklist in [CHEATSHEET.md](CHEATSHEET.md#13-study-order-from-our-current-sessions).
+**Python covered:** dictionaries and `.get()`, frequency counting, `enumerate()`, `zip()`, comprehensions, sorting with `key=lambda`, functions, basic slicing, and 2D nested-list indexing.
+
+**Needs a little more practice:** slicing stop boundaries, functions, and indexing. See [the pre-NumPy refresh](CHEATSHEET.md#14-pre-numpy-refresh--functions-slicing-2d-lists).
+
+**Current focus:** NumPy for AI/ML. Follow the [NumPy tutorial notes and chapter checklist](numpy_basics.md); chapters are not marked complete in advance. Full Python/DSA topics remain in the [learning roadmap](roadmap/PYTHON_ROADMAP.md).
 
 ## Files
 
@@ -28,6 +32,8 @@ This repo is built to answer the annoying questions that happen after not touchi
 - [python_core.md](python_core.md) — syntax, built-ins, strings, lists, tuples, sets, dicts, functions, comprehensions, sorting, and useful methods
 - [leetcode_dsa.md](leetcode_dsa.md) — Python tools and patterns used constantly in LeetCode/DSA
 - [common_gotchas.md](common_gotchas.md) — common Python mistakes and quick fixes
+- [numpy_basics.md](numpy_basics.md) — NumPy quick reference, video timestamps, and chapter checklist
+- [roadmap/PYTHON_ROADMAP.md](roadmap/PYTHON_ROADMAP.md) — Python learning progress and AI/ML track
 
 ## 30-second survival sheet
 
