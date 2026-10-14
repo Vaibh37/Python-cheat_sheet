@@ -487,7 +487,7 @@ nums = [1, 2, 3, 4, 5]
 - [x] Python functions: `def`, parameters, `return` (quick refresh)
 - [x] List indexing and slicing (reviewed; stop index needs practice)
 - [x] Nested lists and row/column indexing (reviewed)
-- [ ] **NumPy arrays**: follow the [video study notes](numpy_basics.md) **(now starting)**
+- [x] **NumPy fundamentals:** eight tutorial chapters studied and revised; use the [NumPy cheat sheet](NUMPY_CHEATSHEET.md). Keep practicing 2D slices and indices.
 - [ ] `Counter`, `defaultdict`, `deque` (later DSA practice)
 - [ ] Problem-solving patterns: two pointers, sliding window, hashing
 
@@ -544,3 +544,32 @@ print(len(matrix[0]))  # 3 columns (for this non-empty rectangular list)
 In a list of lists, `matrix[row][column]` uses **two indices**, both starting at 0.
 
 **Next:** [NumPy arrays and chapter-by-chapter tutorial notes](numpy_basics.md). NumPy adds multi-dimensional indexing, shapes, elementwise arithmetic, and broadcasting.
+
+
+---
+
+## 15. NumPy for ML — 60-second lookup
+
+**Full reference:** [NUMPY_CHEATSHEET.md](NUMPY_CHEATSHEET.md) · **Explanations and exercises:** [numpy_basics.md](numpy_basics.md)
+
+```python
+import numpy as np
+
+a = np.array([[1, 2, 3], [4, 5, 6]])
+a.shape                  # (2, 3)
+a.ndim                   # 2
+a.size                   # 6
+a[1, 2]                 # 6 (row 1, column 2)
+a[0:2, 1:3]             # [[2 3], [5 6]]
+a + 5                   # scalar broadcast
+a.sum(axis=0)           # [5 7 9]  per column
+a.sum(axis=1)           # [6 15]   per row
+a[a > 3]               # [4 5 6]  all matches
+
+b = np.arange(12).reshape(3, 4)
+b[2, 1]                 # 9 (zero-based row and column)
+```
+
+**Two mistakes to avoid:** (1) A 2D slice like `a[0:2, 1:3]` selects a rectangular region, not a single value. (2) A filter like `a[a > 3]` returns **every** matching element.
+
+**Next:** Learn dot products and matrix multiplication (`@`) and use them with NumPy for ML.
