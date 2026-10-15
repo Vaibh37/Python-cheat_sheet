@@ -573,3 +573,13 @@ b[2, 1]                 # 9 (zero-based row and column)
 **Two mistakes to avoid:** (1) A 2D slice like `a[0:2, 1:3]` selects a rectangular region, not a single value. (2) A filter like `a[a > 3]` returns **every** matching element.
 
 **Next:** Learn dot products and matrix multiplication (`@`) and use them with NumPy for ML.
+
+
+## NumPy matrix and neural-layer quick reference
+
+- [Practical matrix operations and shapes](NUMPY_MATRICES.md).
+- [Detailed NumPy lookup](NUMPY_CHEATSHEET.md).
+- [Runnable matrix-check exercise](examples/matrix_operations.py).
+- Math reasoning: [ML-MATH](https://github.com/Vaibh37/ML-MATH/tree/main/linear-algebra/matrices).
+
+Remember: **@** is matrix multiplication, **\*** is elementwise multiplication, **.T** is transpose, and **np.maximum(0,Z)** applies ReLU to every element of Z.

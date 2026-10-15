@@ -18,13 +18,13 @@ This repo is built to answer the annoying questions that happen after not touchi
 
 ## Current study checkpoint
 
-**Updated:** 14 October 2026
+**Updated:** 15 October 2026
 
 **Python covered:** dictionaries and `.get()`, frequency counting, `enumerate()`, `zip()`, comprehensions, sorting with `key=lambda`, functions, basic slicing, and 2D nested-list indexing.
 
 **Needs a little more practice:** 2D NumPy slicing and zero-based row/column indexing, plus occasional Python function and sorting drills. See the [NumPy mistakes and fixes](numpy_basics.md#11-common-mistakes-and-fixes) and [the pre-NumPy refresh](CHEATSHEET.md#14-pre-numpy-refresh--functions-slicing-2d-lists).
 
-**Current focus:** Eight NumPy tutorial chapters studied and revised on 14 October; fundamentals are **covered, not yet mastered**. Use the [detailed NumPy notes](numpy_basics.md) and [dedicated NumPy cheat sheet](NUMPY_CHEATSHEET.md). Next: vectors, dot products, matrices, and NumPy in a neuron. Track gaps in the [learning roadmap](roadmap/PYTHON_ROADMAP.md).
+**Current focus:** NumPy fundamentals are **covered, not yet mastered**. On 15 October, matrix creation, multiplication, transpose, shape checks, and broadcasting were practiced in code. See the [NumPy matrix and dense-layer bridge](NUMPY_MATRICES.md). Training and backpropagation have **not** been implemented. Track gaps in the [learning roadmap](roadmap/PYTHON_ROADMAP.md).
 
 ## Files
 
@@ -34,6 +34,9 @@ This repo is built to answer the annoying questions that happen after not touchi
 - [common_gotchas.md](common_gotchas.md) — common Python mistakes and quick fixes
 - [NUMPY_CHEATSHEET.md](NUMPY_CHEATSHEET.md) — **fast NumPy lookup**: arrays, slicing, broadcasting, filtering, reshape, random numbers, common mistakes
 - [numpy_basics.md](numpy_basics.md) — **full NumPy notes**: explanation, worked outputs, tutorial timestamps, ML connections, and exercises
+- [NUMPY_MATRICES.md](NUMPY_MATRICES.md) — **matrix quick guide**: 2D arrays, @ versus *, transpose, column vectors, broadcasting, and dense-layer calculations
+- [examples/matrix_operations.py](examples/matrix_operations.py) — runnable shape checks and output assertions
+- [assets/numpy-matrix-shapes.svg](assets/numpy-matrix-shapes.svg) — visual guide to NumPy 1D versus column-array shapes
 - [roadmap/PYTHON_ROADMAP.md](roadmap/PYTHON_ROADMAP.md) — Python learning progress and AI/ML track
 
 ## 30-second survival sheet

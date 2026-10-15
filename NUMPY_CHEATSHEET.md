@@ -157,3 +157,26 @@ print(a[a > 8])
 Predicted results: `[[5 6], [9 10]]`, `[12 15 18 21]`, `[ 9 10 11]`. Try to predict them without running Python.
 
 **Next:** vectors, dot products, matrix multiplication, a neuron forward pass. The goal is to use NumPy in ML, not only memorize commands.
+
+
+## Practiced matrix operations (15 October 2026)
+
+Read the [worked guide](NUMPY_MATRICES.md) for the step-by-step maths and the [run-ready checks](examples/matrix_operations.py). The [array shape diagram](assets/numpy-matrix-shapes.svg) shows why a 1D vector and a column vector have different NumPy shapes.
+
+~~~python
+import numpy as np
+A = np.array([[1, 2, 3], [4, 5, 6]])  # (2, 3)
+B = np.array([[7, 8], [9, 10], [11, 12]])  # (3, 2)
+C = A @ B
+print(C)        # [[58 64], [139 154]]
+print(C.shape)  # (2, 2)
+print(A.T.shape) # (3, 2)
+~~~
+
+**NumPy details that matter in neural networks:**
+- x = np.array([2, -1]) has shape **(2,)**; x[:, None] has shape **(2,1)**.
+- For samples stored in **columns**, W:(3,2) @ X:(2,s) + b:(3,1) produces **(3,s)**.
+- Use b = np.array([[1], [2], [-3]]) instead of shape (3,) for this column-oriented convention.
+- np.maximum(0, Z) applies ReLU **elementwise** and keeps Z's shape.
+
+The full math derivation belongs to [ML-MATH](https://github.com/Vaibh37/ML-MATH/tree/main/linear-algebra/matrices); the forward-pass explanation belongs to [Neural-Network](https://github.com/Vaibh37/Neural-Network/blob/main/notes/04-hidden-layer-forward-pass.md).
