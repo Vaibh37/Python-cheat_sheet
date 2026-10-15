@@ -180,3 +180,24 @@ print(A.T.shape) # (3, 2)
 - np.maximum(0, Z) applies ReLU **elementwise** and keeps Z's shape.
 
 The full math derivation belongs to [ML-MATH](https://github.com/Vaibh37/ML-MATH/tree/main/linear-algebra/matrices); the forward-pass explanation belongs to [Neural-Network](https://github.com/Vaibh37/Neural-Network/blob/main/notes/04-hidden-layer-forward-pass.md).
+
+## NumPy MSE — practiced 15 October 2026
+
+For matched actual and predicted arrays, NumPy performs each subtraction and square **elementwise**, then `np.mean()` takes the average:
+
+```python
+import numpy as np
+
+y_true = np.array([10, 20, 30, 40])
+y_pred = np.array([12, 18, 33, 37])
+
+error = y_true - y_pred       # [-2  2 -3  3]
+squared = error ** 2          # [4 4 9 9]
+mse = np.mean(squared)        # 6.5
+```
+
+**Shortcut:** `np.mean((y_true - y_pred) ** 2)` is the same MSE. Lower MSE indicates better fit on the same data; perfect prediction gives MSE = 0. Subtraction sign disappears after squaring, but it matters for later gradients.
+
+**Linear-regression prediction syntax:** `y_pred = w * x + b`. With `x = np.array([1,2,3,4])`, `w = 10` and `b = 0`, predictions are `[10,20,30,40]`; changing `w` manually is **not training**.
+
+Run the [MSE-only NumPy check](examples/numpy_mse.py). For the learning theory and future gradient steps, see [Neural-Network loss lesson](https://github.com/Vaibh37/Neural-Network/blob/main/notes/05-linear-regression-loss-and-gradients.md). This repository stays focused on NumPy syntax.
