@@ -39,6 +39,17 @@ This repo is built to answer the annoying questions that happen after not touchi
 - [assets/numpy-matrix-shapes.svg](assets/numpy-matrix-shapes.svg) — visual guide to NumPy 1D versus column-array shapes
 - [roadmap/PYTHON_ROADMAP.md](roadmap/PYTHON_ROADMAP.md) — Python learning progress and AI/ML track
 
+## Running the NumPy examples
+
+Install the dependency with Python 3.10+:
+
+~~~bash
+python -m pip install -r requirements.txt
+python examples/matrix_operations.py
+~~~
+
+These examples use hand-picked values and validate arithmetic, not ML training.
+
 ## 30-second survival sheet
 
     # length
