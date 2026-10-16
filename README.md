@@ -18,18 +18,20 @@ This repo is built to answer the annoying questions that happen after not touchi
 
 ## Current study checkpoint
 
-**Updated:** 15 October 2026
+**Updated:** 16 October 2026
 
 **Python covered:** dictionaries and `.get()`, frequency counting, `enumerate()`, `zip()`, comprehensions, sorting with `key=lambda`, functions, basic slicing, and 2D nested-list indexing.
 
 **Needs a little more practice:** 2D NumPy slicing and zero-based row/column indexing, plus occasional Python function and sorting drills. See the [NumPy mistakes and fixes](numpy_basics.md#11-common-mistakes-and-fixes) and [the pre-NumPy refresh](CHEATSHEET.md#14-pre-numpy-refresh--functions-slicing-2d-lists).
 
-**Current focus:** NumPy fundamentals are **covered, not yet mastered**. On 15 October, matrix creation, multiplication, transpose, shape checks, and broadcasting were practiced in code. See the [NumPy matrix and dense-layer bridge](NUMPY_MATRICES.md). NumPy MSE and a linear-regression prediction were coded on 15 October 2026, but training and backpropagation have **not** been implemented. Track gaps in the [learning roadmap](roadmap/PYTHON_ROADMAP.md).
+**Current focus:** NumPy fundamentals are **covered, not yet mastered**. On 15 October, matrix creation, multiplication, transpose, shape checks, and broadcasting were practiced in code. See the [NumPy matrix and dense-layer bridge](NUMPY_MATRICES.md). NumPy MSE and a linear-regression prediction were coded on 15 October. On 16 October, a **pure-Python single-example training loop** was coded with five weight/bias updates; this is not yet vectorized NumPy training or multi-layer backpropagation. Track gaps in the [learning roadmap](roadmap/PYTHON_ROADMAP.md).
 
 ## Files
 
 - **[CHEATSHEET.md](CHEATSHEET.md) — START HERE:** quick lookup organized by task, worked examples, dictionary frequency tracing, and mistakes from practice
 - [python_core.md](python_core.md) — syntax, built-ins, strings, lists, tuples, sets, dicts, functions, comprehensions, sorting, and useful methods
+- [FOR_LOOP_TRACE.md](FOR_LOOP_TRACE.md) — **loop execution and reassignment** explained step by step using the first ML training loop
+- [examples/for_loop_state.py](examples/for_loop_state.py) — runnable five-iteration variable-state example
 - [leetcode_dsa.md](leetcode_dsa.md) — Python tools and patterns used constantly in LeetCode/DSA
 - [common_gotchas.md](common_gotchas.md) — common Python mistakes and quick fixes
 - [NUMPY_CHEATSHEET.md](NUMPY_CHEATSHEET.md) — **fast NumPy lookup**: arrays, slicing, broadcasting, filtering, reshape, random numbers, common mistakes

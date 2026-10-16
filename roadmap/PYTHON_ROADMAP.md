@@ -2,9 +2,9 @@
 
 > Track what we have covered, what needs more practice, and what comes next.
 >
-> **Last updated:** 14 October 2026  
-> **Current checkpoint:** Finished eight NumPy tutorial chapters and short revision on 14 October; practice gaps remain in 2D slicing and zero-based indexing  
-> **Next lesson:** Vectors, dot products, matrices and matrix multiplication, then a NumPy single-neuron forward pass. Review [NumPy notes](../numpy_basics.md) and [NumPy cheat sheet](../NUMPY_CHEATSHEET.md) when needed.
+> **Last updated:** 16 October 2026  
+> **Current checkpoint:** NumPy basics and matrix drills practiced; a five-step **pure-Python** gradient descent loop for one training example was written and understood on 16 October. Continue practicing independent code and 2D slicing.  
+> **Next lesson:** Convert the one-example training loop to NumPy arrays and work with multiple samples. Review [loop trace](../FOR_LOOP_TRACE.md), [NumPy notes](../numpy_basics.md), and [NumPy cheat sheet](../NUMPY_CHEATSHEET.md) when needed.
 
 ## ✅ Covered
 
@@ -27,6 +27,7 @@ These topics have come up in our lessons and practice. "Covered" does not mean "
 - Lambda functions for sorting
 - Sorting tuples by multiple conditions
 - Basic loops and conditional logic through coding problems
+- Five-iteration gradient descent loop with reassigned w/b, print placement, and updated values carried forward ([trace](../FOR_LOOP_TRACE.md))
 - Functions: `def`, arguments, and `return` (quick review)
 - Indexing and basic slicing (quick review)
 - Nested lists and `matrix[row][column]` (quick review)
@@ -129,7 +130,8 @@ These topics have come up in our lessons and practice. "Covered" does not mean "
 ### 9. Python for AI/ML
 
 - [x] NumPy fundamentals (tutorial watched and revised; see [detailed notes](../numpy_basics.md) and [quick cheat sheet](../NUMPY_CHEATSHEET.md))
-- [ ] NumPy practice: dot products, matrix multiplication and independent mixed problems
+- [x] NumPy matrix multiplication, transpose and broadcasting drills (review remains useful)
+- [ ] NumPy mixed practice, vectorized gradients and training over multiple samples
 - [ ] Pandas
 - [ ] Matplotlib
 - [ ] Vectorized operations
@@ -155,8 +157,9 @@ Video: [NumPy tutorial](https://www.youtube.com/watch?v=VXU4LSAQDSc). The boxes 
 - [x] Practise `ndim`, `shape`, `size`, aggregates and filtering in the revision quiz
 - [x] Watch all eight tutorial chapters and learn basic `reshape`
 - [ ] Solve mixed 2D slicing and zero-based indexing examples independently (still error-prone)
-- [ ] Study vectors, dot products, matrix multiplication and implement them in NumPy
-- [ ] Build a one-neuron forward pass using NumPy arrays
+- [x] Study vectors, dot products and matrix multiplication; practice matrix multiplication in NumPy
+- [x] Code a one-example prediction, squared loss, manual gradients and five weight/bias updates in pure Python
+- [ ] Extend the training loop to NumPy arrays and several training examples
 - [ ] Keep Python sorting, function arguments, and slicing in occasional review
 - [ ] Return to DSA collections (`Counter`, `defaultdict`, `deque`) when relevant
 

@@ -138,6 +138,8 @@ continue:
             continue
         print(x)
 
+**Loop-state reminder (16 October 2026):** A for loop repeats its indented body but does **not** reset variables from before the loop. Assignments such as w = w + 1 overwrite the same w. Printing inside the loop shows every intermediate value; printing after the loop shows only the final value. [See the full worked trace](FOR_LOOP_TRACE.md).
+
 ## 5. range()
 
     range(5)          # 0..4
