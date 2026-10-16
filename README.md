@@ -24,7 +24,7 @@ This repo is built to answer the annoying questions that happen after not touchi
 
 **Needs a little more practice:** 2D NumPy slicing and zero-based row/column indexing, plus occasional Python function and sorting drills. See the [NumPy mistakes and fixes](numpy_basics.md#11-common-mistakes-and-fixes) and [the pre-NumPy refresh](CHEATSHEET.md#14-pre-numpy-refresh--functions-slicing-2d-lists).
 
-**Current focus:** NumPy fundamentals are **covered, not yet mastered**. On 15 October, matrix creation, multiplication, transpose, shape checks, and broadcasting were practiced in code. See the [NumPy matrix and dense-layer bridge](NUMPY_MATRICES.md). NumPy MSE and a linear-regression prediction were coded on 15 October. On 16 October, a **pure-Python single-example training loop** was coded with five weight/bias updates; this is not yet vectorized NumPy training or multi-layer backpropagation. Track gaps in the [learning roadmap](roadmap/PYTHON_ROADMAP.md).
+**Current focus:** NumPy fundamentals are **covered, not yet mastered**. On 15 October, matrix creation, multiplication, transpose, shape checks, and broadcasting were practiced in code. See the [NumPy matrix and dense-layer bridge](NUMPY_MATRICES.md). NumPy MSE and a linear-regression prediction were coded on 15 October. On 16 October, a **pure-Python single-example training loop** and a **four-example NumPy full-batch training loop** were coded (five batch updates; dataset MSE 21→~0.325768). ReLU derivative was practiced with Boolean masks and .astype(float). Hidden-layer backpropagation is still upcoming. Track gaps in the [learning roadmap](roadmap/PYTHON_ROADMAP.md).
 
 ## Files
 
@@ -39,6 +39,7 @@ This repo is built to answer the annoying questions that happen after not touchi
 - [NUMPY_MATRICES.md](NUMPY_MATRICES.md) — **matrix quick guide**: 2D arrays, @ versus *, transpose, column vectors, broadcasting, and dense-layer calculations
 - [examples/matrix_operations.py](examples/matrix_operations.py) — runnable shape checks and output assertions
 - [examples/numpy_mse.py](examples/numpy_mse.py) — runnable elementwise errors, squared errors and MSE assertions
+- [examples/numpy_vectorization_and_masks.py](examples/numpy_vectorization_and_masks.py) — runnable four-example predictions, dataset gradients and ReLU mask dtype conversion
 - [assets/numpy-matrix-shapes.svg](assets/numpy-matrix-shapes.svg) — visual guide to NumPy 1D versus column-array shapes
 - [roadmap/PYTHON_ROADMAP.md](roadmap/PYTHON_ROADMAP.md) — Python learning progress and AI/ML track
 
@@ -50,9 +51,10 @@ Install the dependency with Python 3.10+:
 python -m pip install -r requirements.txt
 python examples/matrix_operations.py
 python examples/numpy_mse.py
+python examples/numpy_vectorization_and_masks.py
 ~~~
 
-These examples use hand-picked values and validate arithmetic, not ML training.
+These examples explain NumPy operations and validate arithmetic; the complete trained linear-neuron example is in [Neural-Network](https://github.com/Vaibh37/Neural-Network/blob/main/examples/train_batch_neuron_numpy.py).
 
 ## 30-second survival sheet
 

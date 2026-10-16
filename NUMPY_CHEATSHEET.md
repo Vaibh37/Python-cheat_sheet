@@ -200,4 +200,38 @@ mse = np.mean(squared)        # 6.5
 
 **Linear-regression prediction syntax:** `y_pred = w * x + b`. With `x = np.array([1,2,3,4])`, `w = 10` and `b = 0`, predictions are `[10,20,30,40]`; changing `w` manually is **not training**.
 
-Run the [MSE-only NumPy check](examples/numpy_mse.py). For the learning theory and future gradient steps, see [Neural-Network loss lesson](https://github.com/Vaibh37/Neural-Network/blob/main/notes/05-linear-regression-loss-and-gradients.md). This repository stays focused on NumPy syntax.
+Run the [MSE-only NumPy check](examples/numpy_mse.py). For the learning theory and mathematical gradient steps, see [Neural-Network loss lesson](https://github.com/Vaibh37/Neural-Network/blob/main/notes/05-linear-regression-loss-and-gradients.md). This repository stays focused on NumPy syntax.
+
+
+## 16 October — Vectorized dataset gradients and Boolean dtype conversion
+
+~~~python
+import numpy as np
+x = np.array([1.0, 2.0, 3.0, 4.0])
+y = np.array([5.0, 10.0, 15.0, 20.0])
+w, b = 3.0, 1.0
+pred_y = w * x + b                # [4., 7., 10., 13.], shape (4,)
+mse = np.mean((pred_y - y) ** 2)  # 21.0
+dw = 2 * np.mean((pred_y - y) * x) # -25.0
+db = 2 * np.mean(pred_y - y)      # -8.0
+~~~
+
+**Order matters:** np.mean((pred_y-y)**2) squares each error *before* averaging. np.mean(pred_y-y)**2 averages the raw error first and gives a different result. Similarly, take the mean of **(error * corresponding x)**, not the mean error multiplied by an array.
+
+The values dw and db above are **scalars**, because one neuron has one weight and one bias. They are used to update the parameters; they are **not** updated themselves.
+
+### NumPy Boolean comparison and .astype(float)
+
+~~~python
+z = np.array([-3., 2., 0., 5.])
+mask = z > 0           # [False, True, False, True]
+dz = mask.astype(float) # [0., 1., 0., 1.]
+~~~
+
+- The comparison **z > 0** is elementwise and returns a Boolean array.
+- **.astype(float)** converts each True to 1.0 and each False to 0.0; it does not change the original array.
+- **if z > 0:** fails for this multi-element NumPy array because Python expects one truth value, not four.
+- **z == 0** compares values, while **z = 0** assigns a value.
+- This mask is used for the **ReLU derivative**. At z=0, the derivative is mathematically undefined; this code uses 0 by convention.
+
+**Syntax demo:** [examples/numpy_vectorization_and_masks.py](examples/numpy_vectorization_and_masks.py). **Training code and gradient derivation:** [Neural-Network](https://github.com/Vaibh37/Neural-Network/blob/main/notes/07-vectorized-batch-gradient-descent.md).

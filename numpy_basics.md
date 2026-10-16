@@ -362,6 +362,38 @@ print(a.shape)                     # (2, 3)
 - [x] Learn basic `reshape` after the revision surfaced the gap
 - [ ] Independently solve two mixed slicing/indexing problems without counting slips
 - [ ] Independently write a vector dot product and matrix multiplication in NumPy
-- [ ] Apply NumPy arrays to a single-neuron forward pass
+- [x] Apply NumPy arrays to a single-neuron forward pass and vectorize four predictions
 
 **Learning rule:** Predict the result on paper → run the code → explain the shape → fix your own mistake. Studied is not the same as mastered.
+
+
+## 13. Practiced 16 October: vectorized batches, mean and Boolean masks
+
+Four independent sample inputs can be stored in a 1D NumPy array. One shared linear neuron predicts all four without a loop, because scalar multiplication and addition broadcast over every element.
+
+~~~python
+x = np.array([1., 2., 3., 4.])
+y = np.array([5., 10., 15., 20.])
+pred = 3.0 * x + 1.0       # [4., 7., 10., 13.]
+mse = np.mean((pred-y)**2)  # 21.0
+dw = 2 * np.mean((pred-y)*x)  # -25.0
+db = 2 * np.mean(pred-y)     # -8.0
+~~~
+
+**Mistakes encountered and corrected:**
+- Average errors **after squaring** to obtain MSE.
+- Average each sample's **error times its input** to get dw; averaging errors first is not equivalent.
+- Gradients dw and db are **information used to update parameters**, not another neuron's weight.
+- Each epoch recomputes fresh predictions and fresh gradients from updated parameters.
+
+**New method, with explanation:**
+
+~~~python
+z = np.array([-3., 2., 0., 5.])
+comparison = z > 0          # Boolean array
+derivative = comparison.astype(float)   # True -> 1.0, False -> 0.0
+~~~
+
+The **.astype(float)** method converts the array dtype and elements into floats. Here it gives [0.,1.,0.,1.]. A standard Python if cannot directly test an entire multi-element Boolean array as a single condition.
+
+The complete five-epoch parameter update implementation belongs to [Neural-Network/examples/train_batch_neuron_numpy.py](https://github.com/Vaibh37/Neural-Network/blob/main/examples/train_batch_neuron_numpy.py). This Python file records syntax, not separate ML theory.

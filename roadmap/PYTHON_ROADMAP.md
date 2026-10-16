@@ -131,10 +131,11 @@ These topics have come up in our lessons and practice. "Covered" does not mean "
 
 - [x] NumPy fundamentals (tutorial watched and revised; see [detailed notes](../numpy_basics.md) and [quick cheat sheet](../NUMPY_CHEATSHEET.md))
 - [x] NumPy matrix multiplication, transpose and broadcasting drills (review remains useful)
-- [ ] NumPy mixed practice, vectorized gradients and training over multiple samples
+- [x] NumPy vectorized forward prediction, dataset MSE, averaged gradients and five-epoch full-batch training over four samples (16 Oct)
+- [ ] NumPy multi-feature and multi-neuron gradient practice
 - [ ] Pandas
 - [ ] Matplotlib
-- [ ] Vectorized operations
+- [x] Vectorized elementwise operations, scalar broadcasting and np.mean aggregation (four-example training)
 - [ ] PyTorch
 - [ ] Efficient ML data pipelines
 
@@ -159,10 +160,22 @@ Video: [NumPy tutorial](https://www.youtube.com/watch?v=VXU4LSAQDSc). The boxes 
 - [ ] Solve mixed 2D slicing and zero-based indexing examples independently (still error-prone)
 - [x] Study vectors, dot products and matrix multiplication; practice matrix multiplication in NumPy
 - [x] Code a one-example prediction, squared loss, manual gradients and five weight/bias updates in pure Python
-- [ ] Extend the training loop to NumPy arrays and several training examples
+- [x] Extend the training loop to NumPy arrays and four training examples; MSE 21→approximately 0.325768
 - [ ] Keep Python sorting, function arguments, and slicing in occasional review
 - [ ] Return to DSA collections (`Counter`, `defaultdict`, `deque`) when relevant
 
 ---
 
 **Learning rule:** Understand the idea, try a small example, then solve a problem without copying the answer. Update this roadmap as we progress.
+
+
+## 16 October syntax checkpoint
+
+- [x] Use NumPy arithmetic on all four inputs without a Python loop.
+- [x] Compute MSE by squaring **before** np.mean().
+- [x] Apply np.mean() to elementwise contributions before updating one shared parameter.
+- [x] Use z > 0 to form a Boolean mask.
+- [x] Learn .astype(float) to convert the mask to 0.0/1.0 for a ReLU derivative.
+- [ ] Next: gradient arrays and shape reasoning for several neurons; keep mathematical derivations in ML-MATH/Neural-Network.
+
+Runnable syntax check: [numpy_vectorization_and_masks.py](../examples/numpy_vectorization_and_masks.py).
