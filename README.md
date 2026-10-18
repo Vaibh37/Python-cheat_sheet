@@ -18,13 +18,13 @@ This repo is built to answer the annoying questions that happen after not touchi
 
 ## Current study checkpoint
 
-**Updated:** 16 October 2026
+**Updated:** 18 October 2026
 
 **Python covered:** dictionaries and `.get()`, frequency counting, `enumerate()`, `zip()`, comprehensions, sorting with `key=lambda`, functions, basic slicing, and 2D nested-list indexing.
 
 **Needs a little more practice:** 2D NumPy slicing and zero-based row/column indexing, plus occasional Python function and sorting drills. See the [NumPy mistakes and fixes](numpy_basics.md#11-common-mistakes-and-fixes) and [the pre-NumPy refresh](CHEATSHEET.md#14-pre-numpy-refresh--functions-slicing-2d-lists).
 
-**Current focus:** NumPy fundamentals are **covered, not yet mastered**. On 15 October, matrix creation, multiplication, transpose, shape checks, and broadcasting were practiced in code. See the [NumPy matrix and dense-layer bridge](NUMPY_MATRICES.md). NumPy MSE and a linear-regression prediction were coded on 15 October. On 16 October, a **pure-Python single-example training loop** and a **four-example NumPy full-batch training loop** were coded (five batch updates; dataset MSE 21→~0.325768). ReLU derivative was practiced with Boolean masks and .astype(float). Hidden-layer backpropagation is still upcoming. Track gaps in the [learning roadmap](roadmap/PYTHON_ROADMAP.md).
+**Current focus:** NumPy fundamentals are **covered, not yet mastered**. On 15 October, matrix creation, multiplication, transpose, shape checks, and broadcasting were practiced in code. See the [NumPy matrix and dense-layer bridge](NUMPY_MATRICES.md). NumPy MSE and a linear-regression prediction were coded on 15 October. On 16 October, a **pure-Python single-example training loop** and a **four-example NumPy full-batch training loop** were coded (five batch updates; dataset MSE 21→~0.325768). ReLU derivative was practiced with Boolean masks and .astype(float). Full XOR hidden-layer backpropagation and a 5,000-epoch training loop were implemented on 18 October in the [Neural-Network project](https://github.com/Vaibh37/Neural-Network/blob/main/examples/xor_network.py). See [the NumPy NN patterns reference](NUMPY_NEURAL_NETWORK_PATTERNS.md) and track further gaps in the [learning roadmap](roadmap/PYTHON_ROADMAP.md).
 
 ## Files
 
@@ -37,6 +37,7 @@ This repo is built to answer the annoying questions that happen after not touchi
 - [NUMPY_CHEATSHEET.md](NUMPY_CHEATSHEET.md) — **fast NumPy lookup**: arrays, slicing, broadcasting, filtering, reshape, random numbers, common mistakes
 - [numpy_basics.md](numpy_basics.md) — **full NumPy notes**: explanation, worked outputs, tutorial timestamps, ML connections, and exercises
 - [NUMPY_MATRICES.md](NUMPY_MATRICES.md) — **matrix quick guide**: 2D arrays, @ versus *, transpose, column vectors, broadcasting, and dense-layer calculations
+- [NUMPY_NEURAL_NETWORK_PATTERNS.md](NUMPY_NEURAL_NETWORK_PATTERNS.md) — arrays, matrix gradients, ReLU masks, seeded initialization, epochs, and debugging mistakes from XOR training
 - [examples/matrix_operations.py](examples/matrix_operations.py) — runnable shape checks and output assertions
 - [examples/numpy_mse.py](examples/numpy_mse.py) — runnable elementwise errors, squared errors and MSE assertions
 - [examples/numpy_vectorization_and_masks.py](examples/numpy_vectorization_and_masks.py) — runnable four-example predictions, dataset gradients and ReLU mask dtype conversion
