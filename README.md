@@ -30,6 +30,8 @@ This repo is built to answer the annoying questions that happen after not touchi
 
 - **[CHEATSHEET.md](CHEATSHEET.md) — START HERE:** quick lookup organized by task, worked examples, dictionary frequency tracing, and mistakes from practice
 - [python_core.md](python_core.md) — syntax, built-ins, strings, lists, tuples, sets, dicts, functions, comprehensions, sorting, and useful methods
+- [FUNCTIONS_AND_LOOPS.md](FUNCTIONS_AND_LOOPS.md) — beginner-friendly practice with `return`, `range`, accumulators, digit counting, and maximum values
+- [examples/functions_and_loops.py](examples/functions_and_loops.py) — runnable functions and edge-case assertions
 - [FOR_LOOP_TRACE.md](FOR_LOOP_TRACE.md) — **loop execution and reassignment** explained step by step using the first ML training loop
 - [examples/for_loop_state.py](examples/for_loop_state.py) — runnable five-iteration variable-state example
 - [leetcode_dsa.md](leetcode_dsa.md) — Python tools and patterns used constantly in LeetCode/DSA
