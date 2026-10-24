@@ -43,6 +43,7 @@ if __name__ == "__main__":
     assert count_digits(11111112) == 8
     assert count_digits(0) == 1
     assert count_digits(-42) == 2
+    assert count_digits(-1000) == 4
     assert largest_number([1, 2, 3]) == 3
     assert largest_number([-8, -2, -5]) == -2
 
